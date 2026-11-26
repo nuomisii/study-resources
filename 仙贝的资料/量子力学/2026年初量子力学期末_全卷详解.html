@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026年初《量子力学》期末试卷 · 全卷详解</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<style>
+:root{
+  --paper:#F7F8F6;
+  --card:#FFFFFF;
+  --ink:#1C2733;
+  --prussian:#1D4E79;
+  --prussian-soft:#E8EFF6;
+  --cyan:#0E7C86;
+  --cyan-soft:#E5F2F3;
+  --verm:#B5352A;
+  --verm-soft:#FBF0EE;
+  --hair:#DCE1DD;
+  --mut:#65727E;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --serif:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.85}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px 90px}
+
+/* ── 页眉 ── */
+header{padding:52px 0 26px;border-bottom:3px double var(--prussian)}
+.kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.18em;color:var(--cyan);text-transform:uppercase}
+h1{font-family:var(--serif);font-size:clamp(26px,4.6vw,40px);font-weight:700;color:var(--prussian);letter-spacing:.04em;margin:10px 0 6px}
+.sub{color:var(--mut);font-size:14.5px}
+.badges{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.badge{font-family:var(--mono);font-size:12px;padding:3px 10px;border-radius:3px;border:1px solid var(--hair);background:var(--card);color:var(--mut)}
+.badge.v{border-color:#BFD8CB;background:#EFF7F2;color:#1E6B4A}
+
+/* ── 得分栏式导航 ── */
+.scorestrip{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--hair);padding:10px 0 8px;margin-bottom:34px}
+.scorestrip .inner{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.scorestrip a{display:block;text-align:center;text-decoration:none;border:1px solid var(--hair);background:var(--card);border-radius:4px;padding:5px 2px 4px;color:var(--ink);transition:border-color .15s}
+.scorestrip a:hover,.scorestrip a:focus-visible{border-color:var(--prussian);outline:none}
+.scorestrip .qn{font-family:var(--serif);font-weight:700;font-size:15px;color:var(--prussian);display:block;line-height:1.3}
+.scorestrip .pt{font-family:var(--mono);font-size:11px;color:var(--verm)}
+@media(max-width:640px){.scorestrip .qn{font-size:13px}.scorestrip .pt{font-size:10px}}
+
+/* ── 题目区块 ── */
+section.q{margin:0 0 56px}
+.qhead{display:flex;align-items:baseline;gap:14px;border-left:5px solid var(--prussian);padding:4px 0 4px 14px;margin-bottom:14px}
+.qhead h2{font-family:var(--serif);font-size:23px;color:var(--prussian);font-weight:700}
+.qhead .score{font-family:var(--mono);font-size:13px;color:var(--verm)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.tag{font-size:12px;padding:2px 9px;border-radius:99px;background:var(--cyan-soft);color:var(--cyan);border:1px solid #CBE4E6}
+
+.stmt{background:var(--prussian-soft);border:1px solid #CCDCEA;border-radius:6px;padding:14px 18px;margin-bottom:18px;font-size:15.2px}
+.stmt .lbl{font-family:var(--serif);font-weight:700;color:var(--prussian);margin-right:8px}
+
+.sol{background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:20px 24px}
+.sol h3{font-family:var(--serif);font-size:16.5px;color:var(--prussian);margin:20px 0 8px;padding-bottom:4px;border-bottom:1px dashed var(--hair)}
+.sol h3:first-child{margin-top:0}
+.sol p{margin:9px 0}
+.sol .note{font-size:14px;color:var(--mut);background:var(--paper);border-left:3px solid var(--cyan);padding:8px 14px;border-radius:0 4px 4px 0;margin:12px 0}
+
+/* ── 朱批答案框（签名元素） ── */
+.ans{position:relative;border:1.6px solid var(--verm);background:var(--verm-soft);border-radius:5px;padding:12px 16px 12px 52px;margin:16px 0}
+.ans::before{content:"答";position:absolute;left:12px;top:12px;width:26px;height:26px;border:1.6px solid var(--verm);border-radius:4px;color:var(--verm);font-family:var(--serif);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+.ans .vchip{float:right;font-family:var(--mono);font-size:10.5px;color:#1E6B4A;border:1px solid #BFD8CB;background:#EFF7F2;border-radius:3px;padding:1px 6px;margin-left:10px}
+
+/* ── 图区 ── */
+.viz{margin:20px 0 4px;background:var(--card);border:1px solid var(--hair);border-radius:6px;padding:16px 16px 10px}
+.viz .cap{font-size:13px;color:var(--mut);text-align:center;margin-top:6px}
+.viz svg{display:block;width:100%;height:auto}
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:10px 4px 4px;font-size:13.5px}
+.controls button{font-family:var(--sans);font-size:13.5px;padding:5px 16px;border-radius:4px;border:1px solid var(--cyan);background:var(--cyan);color:#fff;cursor:pointer}
+.controls button:hover{background:#0A6automate}
+.controls button:hover{background:#0A626B}
+.controls input[type=range]{flex:1;min-width:140px;accent-color:var(--cyan)}
+.readout{font-family:var(--mono);font-size:12.5px;color:var(--prussian)}
+table.mini{border-collapse:collapse;margin:12px auto;font-size:14.5px}
+table.mini th,table.mini td{border:1px solid var(--hair);padding:5px 16px;text-align:center}
+table.mini th{background:var(--prussian-soft);color:var(--prussian);font-family:var(--serif)}
+table.mini td.hl{color:var(--verm);font-weight:600}
+
+/* ── 考点地图 ── */
+.map{margin-top:60px;border-top:3px double var(--prussian);padding-top:22px}
+.map h2{font-family:var(--serif);color:var(--prussian);font-size:20px;margin-bottom:12px}
+.map .row{display:flex;gap:10px;margin:7px 0;align-items:baseline;flex-wrap:wrap}
+.map .ch{font-family:var(--mono);font-size:12px;color:var(--verm);white-space:nowrap}
+footer{margin-top:44px;color:var(--mut);font-size:13px;text-align:center}
+.katex-display{overflow-x:auto;overflow-y:hidden;padding:3px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Quantum Mechanics · Final Examination · Solutions</div>
+  <h1>2026年初《量子力学》期末试卷 · 全卷详解</h1>
+  <div class="sub">依据 曾谨言《量子力学教程》知识体系 · 回忆版试卷 · 共七题，满分 100 分</div>
+  <div class="badges">
+    <span class="badge">简述 15'</span><span class="badge">氢原子+自旋 15'</span><span class="badge">算符代数 12'</span>
+    <span class="badge">升降算符 12'</span><span class="badge">自旋进动 12'</span><span class="badge">表象变换 18'</span><span class="badge">微扰论 16'</span>
+    <span class="badge v">✓ 全部结论经 SymPy 数值/符号验证</span>
+  </div>
+</header>
+
+<nav class="scorestrip" aria-label="题目导航（得分栏）">
+  <div class="inner">
+    <a href="#q1"><span class="qn">一</span><span class="pt">15分</span></a>
+    <a href="#q2"><span class="qn">二</span><span class="pt">15分</span></a>
+    <a href="#q3"><span class="qn">三</span><span class="pt">12分</span></a>
+    <a href="#q4"><span class="qn">四</span><span class="pt">12分</span></a>
+    <a href="#q5"><span class="qn">五</span><span class="pt">12分</span></a>
+    <a href="#q6"><span class="qn">六</span><span class="pt">18分</span></a>
+    <a href="#q7"><span class="qn">七</span><span class="pt">16分</span></a>
+  </div>
+</nav>
+
+<!-- ═══════════════ 题一 ═══════════════ -->
+<section class="q" id="q1">
+  <div class="qhead"><h2>一、简述题</h2><span class="score">15 分 · 每小题 3 分</span></div>
+  <div class="tags"><span class="tag">二维谐振子</span><span class="tag">动量表象</span><span class="tag">自旋单态/三重态</span><span class="tag">角动量耦合</span><span class="tag">CG 系数</span></div>
+
+  <div class="sol">
+    <h3>（1）各向异性二维谐振子的能级与简并度</h3>
+    <p>势场 \(V(x,y)=\dfrac12 m\omega^2x^2+2m\omega^2y^2=\dfrac12 m\omega^2x^2+\dfrac12 m(2\omega)^2y^2\)，即两个方向的频率为 \(\omega_x=\omega,\ \omega_y=2\omega\)。能量本征值</p>
+    $$E_{n_xn_y}=\Big(n_x+\tfrac12\Big)\hbar\omega+\Big(n_y+\tfrac12\Big)\cdot 2\hbar\omega=\Big(n_x+2n_y+\tfrac32\Big)\hbar\omega\equiv\Big(N+\tfrac32\Big)\hbar\omega,$$
+    <p>其中 \(N=n_x+2n_y=0,1,2,\dots\)。相邻能级间隔恒为 \(\hbar\omega\)。</p>
+    <div class="ans"><span class="vchip">SymPy ✓</span>能级<b>均匀分布</b>，\(E_N=\big(N+\tfrac32\big)\hbar\omega\)，间隔 \(\hbar\omega\)；第 \(N\) 级简并度为
+    \[f_N=\Big\lfloor\frac N2\Big\rfloor+1,\]
+    即 \(f_0{=}f_1{=}1,\ f_2{=}f_3{=}2,\ f_4{=}f_5{=}3,\dots\)（\(N\) 为偶/奇时 \(f_N=\frac N2{+}1\ /\ \frac{N+1}2\)）。</div>
+
+    <div class="viz">
+      <svg viewBox="0 0 660 330" role="img" aria-label="二维各向异性谐振子能级图">
+        <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#1D4E79"/></marker></defs>
+        <line x1="58" y1="305" x2="58" y2="18" stroke="#1C2733" stroke-width="1.4" marker-end="url(#ah)"/>
+        <text x="30" y="30" font-size="13" fill="#1C2733" font-style="italic">E/ℏω</text>
+        <!-- levels: E=1.5..5.5 -> y=278..62 (step54) -->
+        <g stroke="#1D4E79" stroke-width="2.4">
+          <line x1="80" y1="278" x2="330" y2="278"/><line x1="80" y1="224" x2="330" y2="224"/>
+          <line x1="80" y1="170" x2="330" y2="170"/><line x1="80" y1="116" x2="330" y2="116"/>
+          <line x1="80" y1="62"  x2="330" y2="62"/>
+        </g>
+        <g font-size="12.5" fill="#1C2733">
+          <text x="340" y="282">E=3/2 ℏω · N=0 · f=1</text>
+          <text x="340" y="228">E=5/2 ℏω · N=1 · f=1</text>
+          <text x="340" y="174">E=7/2 ℏω · N=2 · f=2</text>
+          <text x="340" y="120">E=9/2 ℏω · N=3 · f=2</text>
+          <text x="340" y="66">E=11/2 ℏω · N=4 · f=3</text>
+        </g>
+        <g font-size="11.5" fill="#65727E" font-family="monospace">
+          <text x="340" y="296">(nx,ny)=(0,0)</text>
+          <text x="340" y="242">(1,0)</text>
+          <text x="340" y="188">(2,0)(0,1)</text>
+          <text x="340" y="134">(3,0)(1,1)</text>
+          <text x="340" y="80">(4,0)(2,1)(0,2)</text>
+        </g>
+        <!-- spacing arrows -->
+        <g stroke="#B5352A" stroke-width="1.3">
+          <line x1="95" y1="278" x2="95" y2="224"/><line x1="95" y1="170" x2="95" y2="116"/>
+        </g>
+        <g fill="#B5352A" font-size="12">
+          <text x="102" y="255">ℏω</text><text x="102" y="147">ℏω</text>
+        </g>
+        <!-- degeneracy dots -->
+        <g fill="#0E7C86">
+          <circle cx="310" cy="278" r="4"/>
+          <circle cx="310" cy="224" r="4"/>
+          <circle cx="310" cy="170" r="4"/><circle cx="298" cy="170" r="4"/>
+          <circle cx="310" cy="116" r="4"/><circle cx="298" cy="116" r="4"/>
+          <circle cx="310" cy="62" r="4"/><circle cx="298" cy="62" r="4"/><circle cx="286" cy="62" r="4"/>
+        </g>
+        <text x="80" y="322" font-size="12" fill="#65727E">等间距梯子（间隔 ℏω），简并度随 N 每隔两级加一</text>
+      </svg>
+    </div>
+
+    <h3>（2）动量表象中的 \(\hat x\) 与薛定谔方程</h3>
+    <div class="ans">坐标算符矩阵元
+    \[\boxed{\ \langle p|\hat x|p'\rangle=i\hbar\frac{\partial}{\partial p}\,\delta(p-p')\ }\]
+    一维动量表象薛定谔方程（\(c(p,t)=\langle p|\psi(t)\rangle\)）：
+    \[i\hbar\frac{\partial c(p,t)}{\partial t}=\frac{p^2}{2m}\,c(p,t)+\int\! \mathrm dp'\,V(p,p')\,c(p',t),\qquad V(p,p')=\frac{1}{2\pi\hbar}\!\int\! V(x)\,e^{-i(p-p')x/\hbar}\mathrm dx,\]
+    等价的微分形式：\(\ i\hbar\,\partial_t c=\Big[\dfrac{p^2}{2m}+V\Big(i\hbar\dfrac{\partial}{\partial p}\Big)\Big]c(p,t)\)。</div>
+    <div class="note">要点：动量表象中 \(\hat p\to p\)（乘法），\(\hat x\to i\hbar\,\partial/\partial p\)；与坐标表象恰好"对偶"（差一个符号，源于 \([\hat x,\hat p]=i\hbar\) 的不对称实现）。</div>
+
+    <h3>（3）自旋单态、三重态与纠缠</h3>
+    <div class="ans">三重态（对称，\(S=1\)）：
+    \[\chi_{11}=\alpha(1)\alpha(2),\quad \chi_{10}=\tfrac{1}{\sqrt2}\big[\alpha(1)\beta(2)+\beta(1)\alpha(2)\big],\quad \chi_{1,-1}=\beta(1)\beta(2);\]
+    单态（反对称，\(S=0\)）：
+    \[\chi_{00}=\tfrac{1}{\sqrt2}\big[\alpha(1)\beta(2)-\beta(1)\alpha(2)\big].\]
+    交换两电子：三重态对称（乘 \(+1\)），单态反对称（乘 \(-1\)）。<b>纠缠态为 \(\chi_{00}\) 与 \(\chi_{10}\)</b>（不可写成两粒子态的直积）；\(\chi_{11},\chi_{1,-1}\) 为直积态，非纠缠。</div>
+
+    <h3>（4）\(\vec S\cdot\vec L\) 的本征值（\(s=\tfrac32,\ l=1\)）</h3>
+    <p>由 \(\vec J=\vec L+\vec S\)，\(\ \vec S\cdot\vec L=\tfrac12(\hat J^2-\hat L^2-\hat S^2)\)。\(j\) 的取值 \(|l-s|\le j\le l+s\)，即 \(j=\tfrac12,\tfrac32,\tfrac52\)：</p>
+    $$\vec S\cdot\vec L=\tfrac12\big[j(j+1)-l(l+1)-s(s+1)\big]\hbar^2=\tfrac12\big[j(j+1)-2-\tfrac{15}4\big]\hbar^2$$
+    <table class="mini">
+      <tr><th>\(j\)</th><td>\(5/2\)</td><td>\(3/2\)</td><td>\(1/2\)</td></tr>
+      <tr><th>\(\vec S\cdot\vec L\)</th><td class="hl">\(+\tfrac32\hbar^2\)</td><td class="hl">\(-\hbar^2\)</td><td class="hl">\(-\tfrac52\hbar^2\)</td></tr>
+      <tr><th>重数 \(2j{+}1\)</th><td>6</td><td>4</td><td>2</td></tr>
+    </table>
+    <div class="ans"><span class="vchip">SymPy ✓</span>\(\vec S\cdot\vec L\) 的全部本征值为 \(\ \tfrac32\hbar^2,\ -\hbar^2,\ -\tfrac52\hbar^2\)。（维数校验：\(6+4+2=12=(2l{+}1)(2s{+}1)\) ✓）</div>
+
+    <h3>（5）Clebsch–Gordan 系数及其不为零的条件</h3>
+    <div class="ans">CG 系数是两个角动量耦合时，<b>耦合表象基矢 \(|j_1 j_2;\,j m\rangle\) 在无耦合表象基矢 \(|j_1m_1\rangle|j_2m_2\rangle\) 上的展开系数</b>：
+    \[|jm\rangle=\sum_{m_1,m_2}\langle j_1m_1 j_2m_2|jm\rangle\,|j_1m_1\rangle|j_2m_2\rangle.\]
+    不为零的条件：① 磁量子数守恒 \(m=m_1+m_2\)；② 三角形规则 \(|j_1-j_2|\le j\le j_1+j_2\)（\(j\) 逐一取整数步长）。</div>
+  </div>
+</section>
+
+<!-- ═══════════════ 题二 ═══════════════ -->
+<section class="q" id="q2">
+  <div class="qhead"><h2>二、氢原子的自旋轨道态</h2><span class="score">15 分</span></div>
+  <div class="tags"><span class="tag">径向分布</span><span class="tag">最可几半径</span><span class="tag">旋量波函数</span><span class="tag">⟨S_z⟩ 与 ⟨J_z⟩</span></div>
+  <div class="stmt"><span class="lbl">题设</span>
+  \(\psi=\begin{pmatrix}\tfrac12 R_{21}Y_{11}\\[2pt] -\tfrac{\sqrt3}{2}R_{21}Y_{10}\end{pmatrix}\)，\(R_{21}=\dfrac{1}{2\sqrt6\,a^{3/2}}\dfrac ra e^{-r/2a}\)。求：(1) 最可几半径；(2) \(\langle r\rangle\)；(3) \(\langle\hat S_z\rangle\) 与 \(\langle\hat J_z\rangle\)。</div>
+
+  <div class="sol">
+    <h3>预备：归一化与结构</h3>
+    <p>旋量的两个分量分别对应 \(m_s=+\tfrac12\)（上）与 \(m_s=-\tfrac12\)（下）。权重
+    \(\big|\tfrac12\big|^2+\big|\tfrac{\sqrt3}{2}\big|^2=\tfrac14+\tfrac34=1\)，态已归一。两分量的径向部分同为 \(R_{21}\)（\(n{=}2,l{=}1\)），故径向分布与自旋无关：</p>
+    $$P(r)=r^2|R_{21}(r)|^2=\frac{1}{24a^3}\frac{r^4}{a^2}e^{-r/a}\propto r^4e^{-r/a}.$$
+
+    <h3>（1）最可几半径</h3>
+    <p>令 \(\dfrac{\mathrm dP}{\mathrm dr}\propto\Big(4r^3-\dfrac{r^4}{a}\Big)e^{-r/a}=0\)，得非平凡解 \(r=4a\)。</p>
+    <div class="ans"><span class="vchip">SymPy ✓</span>最可几半径 \(\ \boxed{r_p=4a}\ \)（即 \(n=2\) 时的 \(n^2a\)）。</div>
+
+    <h3>（2）平均半径</h3>
+    <p>利用 \(\displaystyle\int_0^\infty r^n e^{-r/a}\mathrm dr=n!\,a^{n+1}\)：</p>
+    $$\langle r\rangle=\int_0^\infty r\,P(r)\,\mathrm dr=\frac{1}{24a^5}\int_0^\infty r^5e^{-r/a}\mathrm dr=\frac{5!\,a^6}{24a^5}=5a.$$
+    <div class="ans"><span class="vchip">SymPy ✓</span>\(\boxed{\langle r\rangle=5a}\)。（与通式 \(\langle r\rangle_{nl}=\tfrac{a}{2}[3n^2-l(l+1)]=\tfrac a2(12-2)=5a\) 一致。）</div>
+
+    <div class="viz">
+      <svg id="svg-pr" viewBox="0 0 660 300" role="img" aria-label="径向概率分布曲线"></svg>
+      <div class="cap">径向分布 \(P(r)\propto r^4e^{-r/a}\)：峰值在 \(r_p=4a\)（朱红虚线），期望 \(\langle r\rangle=5a\)（青色虚线）落在峰值右侧 —— 长尾使平均值大于最可几值。</div>
+    </div>
+
+    <h3>（3）\(\langle\hat S_z\rangle\) 与 \(\langle\hat J_z\rangle\)</h3>
+    <p>上分量：\(m_l=1,\ m_s=+\tfrac12\)，概率 \(\tfrac14\)；下分量：\(m_l=0,\ m_s=-\tfrac12\)，概率 \(\tfrac34\)。</p>
+    $$\langle\hat S_z\rangle=\frac\hbar2\cdot\frac14+\Big(-\frac\hbar2\Big)\cdot\frac34=-\frac\hbar4,\qquad
+      \langle\hat L_z\rangle=\hbar\cdot1\cdot\frac14+0\cdot\frac34=\frac\hbar4,$$
+    $$\langle\hat J_z\rangle=\langle\hat L_z\rangle+\langle\hat S_z\rangle=\frac\hbar4-\frac\hbar4=0.$$
+    <div class="ans"><span class="vchip">SymPy ✓</span>\(\ \boxed{\langle\hat S_z\rangle=-\dfrac\hbar4,\qquad \langle\hat J_z\rangle=0}\)</div>
+    <div class="note">另一视角：两分量的 \(m_j=m_l+m_s\) 分别为 \(\tfrac32\)（概率 \(\tfrac14\)）与 \(-\tfrac12\)（概率 \(\tfrac34\)），\(\langle J_z\rangle=\hbar(\tfrac32\cdot\tfrac14-\tfrac12\cdot\tfrac34)=0\)。因两分量 \(m_j\) 不同，\(\psi\) 不是 \(\hat J_z\) 的本征态。</div>
+  </div>
+</section>
+
+<!-- ═══════════════ 题三 ═══════════════ -->
+<section class="q" id="q3">
+  <div class="qhead"><h2>三、反对易的厄米二阶方阵</h2><span class="score">12 分</span></div>
+  <div class="tags"><span class="tag">本征值</span><span class="tag">迹的技巧</span><span class="tag">Pauli 代数</span></div>
+  <div class="stmt"><span class="lbl">题设</span>厄米算符 \(A,B\) 为二阶方阵，\(A^2=B^2=1\)，\(AB+BA=0\)。(1) 证本征值为 \(\pm1\)；(2) 证迹为零；(3) 求 \(A\) 表象中 \(A,B\) 的矩阵。</div>
+
+  <div class="sol">
+    <h3>（1）本征值为 \(\pm1\)</h3>
+    <p>设 \(A\psi=\lambda\psi\ (\psi\neq0)\)，则 \(\psi=A^2\psi=\lambda^2\psi\)，故 \(\lambda^2=1\)，\(\lambda=\pm1\)（厄米性保证 \(\lambda\) 为实，自洽）。对 \(B\) 同理。∎</p>
+
+    <h3>（2）迹为零</h3>
+    <p>由 \(B^2=1\) 知 \(B^{-1}=B\)。反对易关系给出 \(A=-BAB^{-1}=-BAB\)。取迹并用循环性：</p>
+    $$\operatorname{Tr}A=-\operatorname{Tr}(BAB)=-\operatorname{Tr}(AB^2)=-\operatorname{Tr}A\ \Longrightarrow\ \operatorname{Tr}A=0.$$
+    <p>同理 \(\operatorname{Tr}B=0\)。∎</p>
+
+    <h3>（3）\(A\) 表象中的矩阵表示</h3>
+    <p><b>A 的矩阵：</b>在自身表象中 \(A\) 对角，本征值取自 \(\{\pm1\}\) 且迹为零，故两本征值必为一正一负：</p>
+    $$A=\begin{pmatrix}1&0\\0&-1\end{pmatrix}=\sigma_z.$$
+    <p><b>B 的矩阵：</b>设 \(B=\begin{pmatrix}b_{11}&b_{12}\\ b_{21}&b_{22}\end{pmatrix}\)。代入 \(AB+BA=0\) 得对角元 \(2b_{11}=0,\ -2b_{22}=0\)（非对角元自动满足），故 \(b_{11}=b_{22}=0\)。厄米性要求 \(b_{21}=b_{12}^*\)；再由 \(B^2=|b_{12}|^2\,\mathbb 1=\mathbb 1\) 得 \(|b_{12}|=1\)，即 \(b_{12}=e^{i\alpha}\)：</p>
+    <div class="ans"><span class="vchip">SymPy ✓</span>
+    \[A=\begin{pmatrix}1&0\\0&-1\end{pmatrix}=\sigma_z,\qquad
+      B=\begin{pmatrix}0&e^{i\alpha}\\ e^{-i\alpha}&0\end{pmatrix}=\cos\alpha\,\sigma_x-\sin\alpha\,\sigma_y\quad(\alpha\ \text{为任意实相位}),\]
+    通常取 \(\alpha=0\)：\(B=\sigma_x\)。相位自由度对应 \(A\) 本征矢相位的选择。</div>
+
+    <div class="viz">
+      <svg viewBox="0 0 660 250" role="img" aria-label="Bloch 球方向示意">
+        <defs><marker id="ah2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#1D4E79"/></marker>
+        <marker id="ah3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#B5352A"/></marker></defs>
+        <ellipse cx="220" cy="150" rx="130" ry="42" fill="none" stroke="#DCE1DD" stroke-width="1.4"/>
+        <line x1="220" y1="150" x2="220" y2="35" stroke="#1D4E79" stroke-width="2.4" marker-end="url(#ah2)"/>
+        <text x="228" y="42" font-size="14" fill="#1D4E79" font-weight="bold">A = σz（本征值 ±1）</text>
+        <line x1="220" y1="150" x2="338" y2="128" stroke="#B5352A" stroke-width="2.4" marker-end="url(#ah3)"/>
+        <text x="330" y="115" font-size="14" fill="#B5352A" font-weight="bold">B = n̂·σ⃗（赤道方向 α）</text>
+        <path d="M 262 150 A 42 15 0 0 0 258 141" fill="none" stroke="#0E7C86" stroke-width="1.4"/>
+        <text x="268" y="146" font-size="12.5" fill="#0E7C86">α</text>
+        <circle cx="220" cy="150" r="3" fill="#1C2733"/>
+        <text x="60" y="228" font-size="12.5" fill="#65727E">几何解读：满足 X²=1 的厄米二阶阵 ⇔ X=n̂·σ⃗；反对易 ⇔ 两方向垂直（n̂_A·n̂_B=0）。</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 题四 ═══════════════ -->
+<section class="q" id="q4">
+  <div class="qhead"><h2>四、谐振子的升降算符证明</h2><span class="score">12 分</span></div>
+  <div class="tags"><span class="tag">产生/湮灭算符</span><span class="tag">期望值</span><span class="tag">数学归纳</span></div>
+  <div class="stmt"><span class="lbl">题设</span>自然单位制，\(a=\tfrac{1}{\sqrt2}(x+ip),\ a^\dagger=\tfrac{1}{\sqrt2}(x-ip)\)。在 \(|n\rangle\) 下证：(1) \(\bar x=\bar p=0\)；(2) \(\overline{x^2}=\overline{p^2}=n+\tfrac12\)；(3) \(|n\rangle=\tfrac{(a^\dagger)^n}{\sqrt{n!}}|0\rangle\)。</div>
+
+  <div class="sol">
+    <h3>预备公式</h3>
+    $$x=\frac{a+a^\dagger}{\sqrt2},\qquad p=\frac{a-a^\dagger}{\sqrt2\,i},\qquad [a,a^\dagger]=1,$$
+    $$a|n\rangle=\sqrt n\,|n-1\rangle,\qquad a^\dagger|n\rangle=\sqrt{n+1}\,|n+1\rangle.$$
+
+    <h3>（1）\(\bar x=\bar p=0\)</h3>
+    <p>\(a\) 与 \(a^\dagger\) 分别把 \(|n\rangle\) 变为 \(|n\mp1\rangle\)，与 \(|n\rangle\) 正交：</p>
+    $$\bar x=\frac{1}{\sqrt2}\big(\langle n|a|n\rangle+\langle n|a^\dagger|n\rangle\big)=\frac{1}{\sqrt2}\big(\sqrt n\,\delta_{n,n-1}+\sqrt{n+1}\,\delta_{n,n+1}\big)=0,$$
+    <p>同理 \(\bar p=0\)。∎</p>
+
+    <h3>（2）\(\overline{x^2}=\overline{p^2}=n+\tfrac12\)</h3>
+    $$x^2=\tfrac12\big(a^2+a^{\dagger2}+aa^\dagger+a^\dagger a\big),\qquad p^2=\tfrac12\big(-a^2-a^{\dagger2}+aa^\dagger+a^\dagger a\big).$$
+    <p>\(a^2,a^{\dagger2}\) 项使 \(n\to n\mp2\)，期望为零；而 \(aa^\dagger+a^\dagger a=2a^\dagger a+1=2\hat N+1\)：</p>
+    $$\overline{x^2}=\overline{p^2}=\tfrac12\langle n|2\hat N+1|n\rangle=n+\tfrac12.$$
+    <div class="ans"><span class="vchip">SymPy ✓</span>\(\bar x=\bar p=0,\ \overline{x^2}=\overline{p^2}=n+\tfrac12\)。由此 \(\Delta x\,\Delta p=n+\tfrac12\ge\tfrac12\)，且 \(\bar T=\bar V=\tfrac12 E_n\)（位力定理）。</div>
+
+    <h3>（3）\(|n\rangle=\dfrac{(a^\dagger)^n}{\sqrt{n!}}|0\rangle\)（归纳法）</h3>
+    <p><b>奠基</b>：\(n=0\) 显然；\(n=1\)：\(|1\rangle=a^\dagger|0\rangle\)。<b>归纳</b>：设 \(|n\rangle=\tfrac{(a^\dagger)^n}{\sqrt{n!}}|0\rangle\) 成立，由 \(a^\dagger|n\rangle=\sqrt{n+1}|n+1\rangle\)：</p>
+    $$|n+1\rangle=\frac{a^\dagger|n\rangle}{\sqrt{n+1}}=\frac{(a^\dagger)^{n+1}}{\sqrt{(n+1)!}}|0\rangle.\quad\blacksquare$$
+
+    <div class="viz">
+      <svg viewBox="0 0 660 300" role="img" aria-label="产生湮灭算符梯子">
+        <defs><marker id="up" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#0E7C86"/></marker>
+        <marker id="dn" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#B5352A"/></marker></defs>
+        <g stroke="#1D4E79" stroke-width="2.4">
+          <line x1="150" y1="260" x2="380" y2="260"/><line x1="150" y1="200" x2="380" y2="200"/>
+          <line x1="150" y1="140" x2="380" y2="140"/><line x1="150" y1="80" x2="380" y2="80"/>
+        </g>
+        <g font-size="13.5" fill="#1C2733">
+          <text x="392" y="264">|0⟩　E=1/2</text><text x="392" y="204">|1⟩　E=3/2</text>
+          <text x="392" y="144">|2⟩　E=5/2</text><text x="392" y="84">|n⟩　E=n+1/2</text>
+        </g>
+        <text x="392" y="112" font-size="15" fill="#65727E">⋮</text>
+        <g stroke="#0E7C86" stroke-width="2">
+          <line x1="220" y1="255" x2="220" y2="207" marker-end="url(#up)"/>
+          <line x1="220" y1="195" x2="220" y2="147" marker-end="url(#up)"/>
+          <line x1="220" y1="135" x2="220" y2="87" marker-end="url(#up)"/>
+        </g>
+        <g fill="#0E7C86" font-size="12.5" font-family="monospace">
+          <text x="160" y="234">a†:√1</text><text x="160" y="174">a†:√2</text><text x="160" y="114">a†:√3⋯</text>
+        </g>
+        <g stroke="#B5352A" stroke-width="2">
+          <line x1="310" y1="87" x2="310" y2="135" marker-end="url(#dn)"/>
+          <line x1="310" y1="147" x2="310" y2="195" marker-end="url(#dn)"/>
+          <line x1="310" y1="207" x2="310" y2="255" marker-end="url(#dn)"/>
+        </g>
+        <g fill="#B5352A" font-size="12.5" font-family="monospace">
+          <text x="322" y="114">a:√3⋯</text><text x="322" y="174">a:√2</text><text x="322" y="234">a:√1</text>
+        </g>
+        <text x="150" y="288" font-size="12.5" fill="#65727E">从 |0⟩ 逐级作用 a†：|n⟩=(a†)ⁿ|0⟩/√(n!)，系数累积 √1·√2⋯√n=√(n!)</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 题五 ═══════════════ -->
+<section class="q" id="q5">
+  <div class="qhead"><h2>五、y 方向磁场中的自旋进动</h2><span class="score">12 分</span></div>
+  <div class="tags"><span class="tag">时间演化算符</span><span class="tag">Pauli 矩阵指数</span><span class="tag">Larmor 进动</span></div>
+  <div class="stmt"><span class="lbl">题设</span>\(H=\hbar\omega\sigma_y,\ \omega=\dfrac{eB}{2mc}\)；\(t=0\) 时 \(S_z=-\tfrac\hbar2\)（自旋向下）。求 (1) \(\chi(t)\)；(2) 各自旋分量平均值。</div>
+
+  <div class="sol">
+    <h3>（1）自旋态 \(\chi(t)\)</h3>
+    <p>初态 \(\chi(0)=\binom{0}{1}\)。利用 \(\sigma_y^2=1\) 展开矩阵指数：</p>
+    $$U(t)=e^{-iHt/\hbar}=e^{-i\omega t\,\sigma_y}=\cos\omega t\,\mathbb 1-i\sin\omega t\,\sigma_y
+      =\begin{pmatrix}\cos\omega t&-\sin\omega t\\ \sin\omega t&\cos\omega t\end{pmatrix},$$
+    <div class="ans"><span class="vchip">SymPy ✓</span>
+    \[\chi(t)=U(t)\binom01=\boxed{\begin{pmatrix}-\sin\omega t\\ \cos\omega t\end{pmatrix}}\]
+    （已归一：\(\sin^2+\cos^2=1\)。）</div>
+
+    <h3>（2）自旋分量平均值</h3>
+    <p>逐一计算 \(\langle S_i\rangle=\tfrac\hbar2\,\chi^\dagger\sigma_i\chi\)：</p>
+    $$\langle S_x\rangle=\frac\hbar2\big(-2\sin\omega t\cos\omega t\big)=-\frac\hbar2\sin2\omega t,\qquad
+      \langle S_y\rangle=0,$$
+    $$\langle S_z\rangle=\frac\hbar2\big(\sin^2\omega t-\cos^2\omega t\big)=-\frac\hbar2\cos2\omega t.$$
+    <div class="ans"><span class="vchip">SymPy ✓</span>
+    \[\boxed{\ \langle S_x\rangle=-\frac\hbar2\sin 2\omega t,\qquad \langle S_y\rangle=0,\qquad \langle S_z\rangle=-\frac\hbar2\cos 2\omega t\ }\]
+    自旋矢量以角频率 \(\Omega=2\omega=\dfrac{eB}{mc}\)（Larmor 频率）绕磁场方向（\(y\) 轴）进动，始终位于 \(xz\) 平面内，长度 \(|\langle\vec S\rangle|=\tfrac\hbar2\) 守恒；\(t=0\) 指向 \(-z\)，验证初条件。</div>
+
+    <div class="viz">
+      <svg id="svg-spin" viewBox="0 0 660 320" role="img" aria-label="自旋进动动画"></svg>
+      <div class="controls">
+        <button id="spin-play" type="button">▶ 播放</button>
+        <input id="spin-slider" type="range" min="0" max="628" value="0" step="1" aria-label="时间 ωt">
+        <span class="readout" id="spin-read">ωt = 0.00</span>
+      </div>
+      <div class="cap">左：\(xz\) 平面内 \(\langle\vec S\rangle\) 的进动轨迹（磁场 \(\vec B\parallel y\) 指向屏幕外 ⊙）。右：\(\langle S_x\rangle\)（青）与 \(\langle S_z\rangle\)（蓝）随 \(\omega t\) 的振荡，周期为 \(\pi\)（即 \(\Omega=2\omega\)）。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 题六 ═══════════════ -->
+<section class="q" id="q6">
+  <div class="qhead"><h2>六、l = 1 的角动量矩阵与表象变换</h2><span class="score">18 分</span></div>
+  <div class="tags"><span class="tag">升降算符矩阵元</span><span class="tag">久期方程</span><span class="tag">幺正变换</span><span class="tag">轮换对称</span></div>
+  <div class="stmt"><span class="lbl">题设</span>\((L^2,L_z)\) 表象、\(l=1\)、\(\hbar=1\)。(1) 求 \(L_x,L_y\) 矩阵；(2) 矩阵方法求 \(L_y\) 本征值与本征矢；(3) 求变换矩阵 \(S\)，并求 \(L_x\) 在 \((L^2,L_y)\) 表象中的矩阵。</div>
+
+  <div class="sol">
+    <h3>（1）\(L_x,\ L_y\) 的矩阵（基矢按 \(m=1,0,-1\) 排列）</h3>
+    <p>由 \(\langle l,m\pm1|L_\pm|l,m\rangle=\sqrt{l(l+1)-m(m\pm1)}\)，\(l=1\) 时非零矩阵元均为 \(\sqrt2\)：</p>
+    $$L_+=\sqrt2\begin{pmatrix}0&1&0\\0&0&1\\0&0&0\end{pmatrix},\qquad L_-=L_+^\dagger,$$
+    <div class="ans"><span class="vchip">SymPy ✓</span>
+    \[L_x=\frac{L_++L_-}{2}=\frac{1}{\sqrt2}\begin{pmatrix}0&1&0\\1&0&1\\0&1&0\end{pmatrix},\qquad
+      L_y=\frac{L_+-L_-}{2i}=\frac{1}{\sqrt2}\begin{pmatrix}0&-i&0\\ i&0&-i\\ 0&i&0\end{pmatrix}.\]</div>
+
+    <h3>（2）\(L_y\) 的本征值与本征矢</h3>
+    <p>久期方程 \(\det(L_y-\lambda\mathbb 1)=-\lambda^3+\lambda=0\)，得 \(\lambda=+1,\,0,\,-1\)（与 \(L_z\) 谱相同，方向的选取不影响谱）。逐一代回 \((L_y-\lambda)u=0\) 并归一化：</p>
+    <div class="ans"><span class="vchip">SymPy ✓</span>
+    \[u_{+1}=\frac12\begin{pmatrix}1\\ i\sqrt2\\ -1\end{pmatrix},\qquad
+      u_{0}=\frac{1}{\sqrt2}\begin{pmatrix}1\\ 0\\ 1\end{pmatrix},\qquad
+      u_{-1}=\frac12\begin{pmatrix}1\\ -i\sqrt2\\ -1\end{pmatrix}.\]
+    （已验证正交归一与 \(L_yu_\lambda=\lambda u_\lambda\)。）</div>
+
+    <div class="viz">
+      <svg viewBox="0 0 660 260" role="img" aria-label="Ly 本征矢在 m 基上的概率分布">
+        <g font-size="13.5" fill="#1D4E79" font-family="serif" font-weight="bold">
+          <text x="60" y="26">λ=+1：|c_m|² = (¼, ½, ¼)</text>
+          <text x="278" y="26">λ=0：(½, 0, ½)</text>
+          <text x="470" y="26">λ=−1：(¼, ½, ¼)</text>
+        </g>
+        <!-- group 1 -->
+        <g>
+          <line x1="55" y1="200" x2="215" y2="200" stroke="#1C2733" stroke-width="1.2"/>
+          <rect x="70" y="160" width="34" height="40" fill="#0E7C86" opacity=".85"/>
+          <rect x="118" y="120" width="34" height="80" fill="#0E7C86" opacity=".85"/>
+          <rect x="166" y="160" width="34" height="40" fill="#0E7C86" opacity=".85"/>
+          <g font-size="12" fill="#65727E"><text x="79" y="218">m=1</text><text x="127" y="218">m=0</text><text x="172" y="218">m=−1</text></g>
+        </g>
+        <!-- group 2 -->
+        <g>
+          <line x1="265" y1="200" x2="425" y2="200" stroke="#1C2733" stroke-width="1.2"/>
+          <rect x="280" y="120" width="34" height="80" fill="#1D4E79" opacity=".85"/>
+          <rect x="376" y="120" width="34" height="80" fill="#1D4E79" opacity=".85"/>
+          <line x1="328" y1="200" x2="362" y2="200" stroke="#B5352A" stroke-width="3"/>
+          <g font-size="12" fill="#65727E"><text x="289" y="218">m=1</text><text x="337" y="218">m=0</text><text x="382" y="218">m=−1</text></g>
+        </g>
+        <!-- group 3 -->
+        <g>
+          <line x1="475" y1="200" x2="635" y2="200" stroke="#1C2733" stroke-width="1.2"/>
+          <rect x="490" y="160" width="34" height="40" fill="#0E7C86" opacity=".85"/>
+          <rect x="538" y="120" width="34" height="80" fill="#0E7C86" opacity=".85"/>
+          <rect x="586" y="160" width="34" height="40" fill="#0E7C86" opacity=".85"/>
+          <g font-size="12" fill="#65727E"><text x="499" y="218">m=1</text><text x="547" y="218">m=0</text><text x="592" y="218">m=−1</text></g>
+        </g>
+        <text x="55" y="248" font-size="12.5" fill="#65727E">在 |1m⟩ 基上测 L_z 的概率分布：λ=±1 时为 (¼,½,¼)，λ=0 时 m=0 分量恰好为零（朱红标记）。</text>
+      </svg>
+    </div>
+
+    <h3>（3）变换矩阵 \(S\) 与 \(L_x\) 的新表象矩阵</h3>
+    <p>以 \(L_y\) 本征矢（在旧表象中的分量列）依 \(\lambda=1,0,-1\) 排成幺正阵</p>
+    $$S=\big(u_{+1},\,u_0,\,u_{-1}\big)=\begin{pmatrix}
+      \frac12&\frac{1}{\sqrt2}&\frac12\\[3pt]
+      \frac{i}{\sqrt2}&0&-\frac{i}{\sqrt2}\\[3pt]
+      -\frac12&\frac{1}{\sqrt2}&-\frac12\end{pmatrix},\qquad S^\dagger S=\mathbb 1,$$
+    <p>则任意算符按 \(F'=S^\dagger F S\) 变换（若按波函数 \(\psi'=\tilde S\psi\) 的约定，取 \(\tilde S=S^\dagger\)，结果相同）。校验：\(S^\dagger L_yS=\mathrm{diag}(1,0,-1)\) ✓。对 \(L_x\)：</p>
+    <div class="ans"><span class="vchip">SymPy ✓</span>
+    \[L_x'=S^\dagger L_x S=\frac{1}{\sqrt2}\begin{pmatrix}0&-i&0\\ i&0&-i\\ 0&i&0\end{pmatrix}.\]
+    \(L_x\) 在 \((L^2,L_y)\) 表象中的矩阵，与 \(L_y\) 在 \((L^2,L_z)\) 表象中的矩阵<b>完全相同</b> —— 这是 \(x\to y\to z\to x\) 轮换对称性（\([L_y,L_z]=iL_x\) 等价于 \([L_z,L_x]=iL_y\) 的轮换）的直接体现。</div>
+  </div>
+</section>
+
+<!-- ═══════════════ 题七 ═══════════════ -->
+<section class="q" id="q7">
+  <div class="qhead"><h2>七、三能级体系的微扰论</h2><span class="score">16 分</span></div>
+  <div class="tags"><span class="tag">非简并二级微扰</span><span class="tag">简并微扰</span><span class="tag">久期方程</span><span class="tag">零级波函数</span></div>
+  <div class="stmt"><span class="lbl">题设</span>
+  \(H_0=\mathrm{diag}\big(E_1^{(0)},E_2^{(0)},E_2^{(0)}\big)\)（\(E_1^{(0)}\lt E_2^{(0)}\)），\(H'=\begin{pmatrix}a&b&c\\ b&0&d\\ c&d&0\end{pmatrix}\)，\(a,b,c,d\) 为实常数。(1) 基态能量至二级；(2) 激发态能量至一级及新零级波函数。</div>
+
+  <div class="sol">
+    <h3>（1）基态（非简并）：二级微扰</h3>
+    <p>基态 \(\psi_1\) 非简并，直接套用非简并微扰公式。一级修正取矩阵元 \(H'_{11}\)：</p>
+    $$E_1^{(1)}=H'_{11}=a.$$
+    <p>二级修正对所有 \(n\neq1\) 求和，两个中间态 \(\psi_2,\psi_3\) 能量同为 \(E_2^{(0)}\)：</p>
+    $$E_1^{(2)}=\sum_{n\neq1}\frac{|H'_{n1}|^2}{E_1^{(0)}-E_n^{(0)}}
+      =\frac{b^2+c^2}{E_1^{(0)}-E_2^{(0)}}=-\frac{b^2+c^2}{E_2^{(0)}-E_1^{(0)}}\ \lt\ 0.$$
+    <div class="ans"><span class="vchip">数值对角化 ✓</span>
+    \[\boxed{\ E_1\simeq E_1^{(0)}+a-\frac{b^2+c^2}{E_2^{(0)}-E_1^{(0)}}\ }\]
+    二级修正必为负 —— 与高能级的耦合总把基态往下"压"（能级排斥）。</div>
+
+    <h3>（2）激发态（二重简并）：一级微扰与零级波函数</h3>
+    <p>在简并子空间 \(\{\psi_2,\psi_3\}\) 内取 \(H'\) 的子块并解久期方程：</p>
+    $$W=\begin{pmatrix}H'_{22}&H'_{23}\\ H'_{32}&H'_{33}\end{pmatrix}=\begin{pmatrix}0&d\\ d&0\end{pmatrix},\qquad
+      \det\begin{pmatrix}-E^{(1)}&d\\ d&-E^{(1)}\end{pmatrix}=E^{(1)2}-d^2=0\ \Rightarrow\ E^{(1)}=\pm d.$$
+    <p>相应组合系数满足 \(\mp c_2+c_3\cdot\tfrac{d}{|d|}\dots\) 即 \(c_3=\pm c_2\)，归一化后：</p>
+    <div class="ans"><span class="vchip">数值对角化 ✓</span>
+    \[\boxed{\ E_2^{\pm}\simeq E_2^{(0)}\pm d\ },\qquad
+      \varphi_\pm=\frac{1}{\sqrt2}\big(\psi_2\pm\psi_3\big).\]
+    只要 \(d\neq0\)，简并在一级即被完全解除，劈裂宽度 \(2|d|\)；对角元 \(H'_{22}=H'_{33}=0\) 使能级对称地上下劈裂。（\(b,c\) 只在激发态的二级修正中出现。）</div>
+
+    <div class="viz">
+      <svg id="svg-pt" viewBox="0 0 660 360" role="img" aria-label="微扰能级随耦合强度的演化"></svg>
+      <div class="controls">
+        <span class="readout">微扰强度 λ（\(H_0+\lambda H'\)）</span>
+        <input id="pt-slider" type="range" min="0" max="100" value="100" step="1" aria-label="微扰强度">
+        <span class="readout" id="pt-read">λ = 1.00</span>
+      </div>
+      <div class="cap" id="pt-cap">实线：精确对角化本征值；虚线：微扰公式（基态取二级，激发态取一级）。示例参数 \(E_1^{(0)}{=}0,\ E_2^{(0)}{=}2,\ a{=}0.4,\ b{=}0.5,\ c{=}0.3,\ d{=}0.6\)。拖动滑块观察微扰近似的适用范围。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 考点地图 ═══════════════ -->
+<div class="map">
+  <h2>全卷考点地图（对照曾谨言《量子力学教程》）</h2>
+  <div class="row"><span class="ch">第2·5章</span><span>谐振子能谱与简并度（题一1）、氢原子径向分布 \(r_p,\langle r\rangle\)（题二）</span></div>
+  <div class="row"><span class="ch">第7章</span><span>动量表象（题一2）、表象变换与幺正矩阵（题六）、矩阵本征值问题（题三、六）</span></div>
+  <div class="row"><span class="ch">第8·9章</span><span>自旋单态/三重态与纠缠（题一3）、\(\vec S\cdot\vec L\) 与角动量耦合、CG 系数（题一4、5）、升降算符（题四）、自旋进动（题五）</span></div>
+  <div class="row"><span class="ch">第10章</span><span>非简并二级微扰、简并微扰久期方程（题七）—— 呼应"对称性优先分块 + 一级失效看二级"两大主题</span></div>
+</div>
+
+<footer>2026年初《量子力学》期末 · 全卷详解 · KaTeX 渲染 · 关键结论均经 SymPy 符号/数值验证</footer>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false}
+    ],
+    throwOnError: false
+  });
+  drawPr();
+  initSpin();
+  initPT();
+});
+
+/* ── 题二：P(r) 曲线 ── */
+function drawPr(){
+  var svg = document.getElementById("svg-pr");
+  var W=660, H=300, x0=60, x1=620, y0=260, y1=40;
+  var rmax=14, Pmax=0.1955;
+  function X(r){ return x0 + (r/rmax)*(x1-x0); }
+  function Y(P){ return y0 - (P/Pmax)*(y0-y1); }
+  function P(r){ return Math.pow(r,4)*Math.exp(-r)/24; }
+  var pts=[];
+  for(var r=0; r<=rmax+1e-9; r+=0.05){ pts.push(X(r).toFixed(1)+","+Y(P(r)).toFixed(1)); }
+  var ns="http://www.w3.org/2000/svg";
+  function el(tag,attrs,txt){
+    var e=document.createElementNS(ns,tag);
+    for(var k in attrs){ e.setAttribute(k,attrs[k]); }
+    if(txt){ e.textContent=txt; }
+    svg.appendChild(e); return e;
+  }
+  // area fill
+  el("polygon",{points:X(0)+","+y0+" "+pts.join(" ")+" "+X(rmax)+","+y0, fill:"#E5F2F3"});
+  // axes
+  el("line",{x1:x0,y1:y0,x2:x1+10,y2:y0,stroke:"#1C2733","stroke-width":1.4});
+  el("line",{x1:x0,y1:y0,x2:x0,y2:y1-10,stroke:"#1C2733","stroke-width":1.4});
+  el("text",{x:x1-30,y:y0+24,"font-size":13,fill:"#1C2733"},"r/a");
+  el("text",{x:x0-45,y:y1,"font-size":13,fill:"#1C2733"},"P(r)");
+  for(var t=2;t<=14;t+=2){
+    el("line",{x1:X(t),y1:y0,x2:X(t),y2:y0+5,stroke:"#1C2733","stroke-width":1});
+    el("text",{x:X(t)-5,y:y0+20,"font-size":11.5,fill:"#65727E"},String(t));
+  }
+  // curve
+  el("polyline",{points:pts.join(" "),fill:"none",stroke:"#1D4E79","stroke-width":2.6});
+  // r=4a mark
+  el("line",{x1:X(4),y1:y0,x2:X(4),y2:Y(P(4)),stroke:"#B5352A","stroke-width":1.6,"stroke-dasharray":"6 4"});
+  el("circle",{cx:X(4),cy:Y(P(4)),r:4.5,fill:"#B5352A"});
+  el("text",{x:X(4)-58,y:Y(P(4))-12,"font-size":13,fill:"#B5352A","font-weight":"bold"},"r_p = 4a（峰值）");
+  // r=5a mark
+  el("line",{x1:X(5),y1:y0,x2:X(5),y2:Y(P(5)),stroke:"#0E7C86","stroke-width":1.6,"stroke-dasharray":"6 4"});
+  el("circle",{cx:X(5),cy:Y(P(5)),r:4.5,fill:"#0E7C86"});
+  el("text",{x:X(5)+10,y:Y(P(5))-2,"font-size":13,fill:"#0E7C86","font-weight":"bold"},"⟨r⟩ = 5a");
+}
+
+/* ── 题五：自旋进动 ── */
+function initSpin(){
+  var svg=document.getElementById("svg-spin");
+  var ns="http://www.w3.org/2000/svg";
+  function el(parent,tag,attrs,txt){
+    var e=document.createElementNS(ns,tag);
+    for(var k in attrs){ e.setAttribute(k,attrs[k]); }
+    if(txt){ e.textContent=txt; }
+    parent.appendChild(e); return e;
+  }
+  var cx=155, cy=160, R=95;
+  // left panel: xz circle
+  el(svg,"circle",{cx:cx,cy:cy,r:R,fill:"none",stroke:"#DCE1DD","stroke-width":1.4});
+  el(svg,"line",{x1:cx-R-18,y1:cy,x2:cx+R+18,y2:cy,stroke:"#9AA6B0","stroke-width":1});
+  el(svg,"line",{x1:cx,y1:cy+R+18,x2:cx,y2:cy-R-18,stroke:"#9AA6B0","stroke-width":1});
+  el(svg,"text",{x:cx+R+4,y:cy-8,"font-size":13,fill:"#1C2733","font-style":"italic"},"⟨Sx⟩");
+  el(svg,"text",{x:cx+8,y:cy-R-6,"font-size":13,fill:"#1C2733","font-style":"italic"},"⟨Sz⟩");
+  el(svg,"circle",{cx:cx,cy:cy,r:9,fill:"none",stroke:"#B5352A","stroke-width":1.6});
+  el(svg,"circle",{cx:cx,cy:cy,r:2.2,fill:"#B5352A"});
+  el(svg,"text",{x:cx+13,y:cy+18,"font-size":12,fill:"#B5352A"},"B ∥ y ⊙");
+  el(svg,"text",{x:cx-42,y:cy+R+34,"font-size":12.5,fill:"#65727E"},"半径 = ħ/2");
+  var trace=el(svg,"path",{d:"",fill:"none",stroke:"#0E7C86","stroke-width":1.6,opacity:.55});
+  var vec=el(svg,"line",{x1:cx,y1:cy,x2:cx,y2:cy+R,stroke:"#1D4E79","stroke-width":3,"stroke-linecap":"round"});
+  var tip=el(svg,"circle",{cx:cx,cy:cy+R,r:5.5,fill:"#1D4E79"});
+  // right panel: time series
+  var px0=330, px1=635, py0=250, py1=60, pymid=(py0+py1)/2;
+  function TX(th){ return px0 + (th/(2*Math.PI))*(px1-px0); }
+  function TY(v){ return pymid - v*( (py0-py1)/2 )/0.5; }
+  el(svg,"line",{x1:px0,y1:pymid,x2:px1,y2:pymid,stroke:"#9AA6B0","stroke-width":1});
+  el(svg,"line",{x1:px0,y1:py0+8,x2:px0,y2:py1-8,stroke:"#9AA6B0","stroke-width":1});
+  el(svg,"text",{x:px1-22,y:pymid+18,"font-size":13,fill:"#1C2733","font-style":"italic"},"ωt");
+  el(svg,"text",{x:px0-24,y:py1-12,"font-size":12,fill:"#65727E"},"+ħ/2");
+  el(svg,"text",{x:px0-24,y:py0+22,"font-size":12,fill:"#65727E"},"−ħ/2");
+  [Math.PI, 2*Math.PI].forEach(function(v,i){
+    el(svg,"line",{x1:TX(v),y1:pymid-4,x2:TX(v),y2:pymid+4,stroke:"#1C2733","stroke-width":1});
+    el(svg,"text",{x:TX(v)-8,y:pymid+18,"font-size":11.5,fill:"#65727E"},(i===0?"π":"2π"));
+  });
+  var sxPts=[], szPts=[];
+  for(var th=0; th<=2*Math.PI+1e-9; th+=0.02){
+    sxPts.push(TX(th).toFixed(1)+","+TY(-0.5*Math.sin(2*th)).toFixed(1));
+    szPts.push(TX(th).toFixed(1)+","+TY(-0.5*Math.cos(2*th)).toFixed(1));
+  }
+  el(svg,"polyline",{points:sxPts.join(" "),fill:"none",stroke:"#0E7C86","stroke-width":2});
+  el(svg,"polyline",{points:szPts.join(" "),fill:"none",stroke:"#1D4E79","stroke-width":2});
+  el(svg,"text",{x:px0+8,y:py1-12,"font-size":12.5,fill:"#0E7C86","font-weight":"bold"},"⟨Sx⟩ = −(ħ/2)sin2ωt");
+  el(svg,"text",{x:px0+8,y:py1+6,"font-size":12.5,fill:"#1D4E79","font-weight":"bold"},"⟨Sz⟩ = −(ħ/2)cos2ωt");
+  var dotX=el(svg,"circle",{cx:TX(0),cy:TY(0),r:5,fill:"#0E7C86"});
+  var dotZ=el(svg,"circle",{cx:TX(0),cy:TY(-0.5),r:5,fill:"#1D4E79"});
+  var cursor=el(svg,"line",{x1:TX(0),y1:py0,x2:TX(0),y2:py1,stroke:"#B5352A","stroke-width":1,"stroke-dasharray":"4 4"});
+
+  var slider=document.getElementById("spin-slider");
+  var read=document.getElementById("spin-read");
+  var btn=document.getElementById("spin-play");
+  var playing=false, raf=null;
+
+  function render(th){
+    var sx=-0.5*Math.sin(2*th), sz=-0.5*Math.cos(2*th);
+    var vx=cx+sx*2*R, vy=cy-sz*2*R;
+    vec.setAttribute("x2",vx); vec.setAttribute("y2",vy);
+    tip.setAttribute("cx",vx); tip.setAttribute("cy",vy);
+    // trace arc from start (theta'=0..th)
+    var d="";
+    for(var s=0; s<=th+1e-9; s+=0.03){
+      var ax=cx-0.5*Math.sin(2*s)*2*R*1 , ay=cy+0.5*Math.cos(2*s)*2*R;
+      ax = cx + (-0.5*Math.sin(2*s))*2*R;
+      ay = cy - (-0.5*Math.cos(2*s))*2*R;
+      d += (d===""?"M":"L") + ax.toFixed(1)+" "+ay.toFixed(1)+" ";
+    }
+    trace.setAttribute("d",d);
+    dotX.setAttribute("cx",TX(th)); dotX.setAttribute("cy",TY(sx));
+    dotZ.setAttribute("cx",TX(th)); dotZ.setAttribute("cy",TY(sz));
+    cursor.setAttribute("x1",TX(th)); cursor.setAttribute("x2",TX(th));
+    read.textContent="ωt = "+th.toFixed(2)+"　⟨Sx⟩="+(sx).toFixed(2)+"ħ　⟨Sz⟩="+(sz).toFixed(2)+"ħ";
+  }
+  slider.addEventListener("input", function(){ render(slider.value/100); });
+  function step(){
+    if(!playing) return;
+    var v=(parseInt(slider.value,10)+2)%629;
+    slider.value=v; render(v/100);
+    raf=requestAnimationFrame(step);
+  }
+  btn.addEventListener("click", function(){
+    playing=!playing;
+    btn.textContent = playing ? "⏸ 暂停" : "▶ 播放";
+    if(playing){ raf=requestAnimationFrame(step); } else if(raf){ cancelAnimationFrame(raf); }
+  });
+  render(0);
+}
+
+/* ── 题七：微扰 vs 精确 ── */
+function initPT(){
+  var svg=document.getElementById("svg-pt");
+  var ns="http://www.w3.org/2000/svg";
+  function el(parent,tag,attrs,txt){
+    var e=document.createElementNS(ns,tag);
+    for(var k in attrs){ e.setAttribute(k,attrs[k]); }
+    if(txt){ e.textContent=txt; }
+    parent.appendChild(e); return e;
+  }
+  var E1=0, E2=2, a=0.4, b=0.5, c=0.3, d=0.6;
+  var x0=70, x1=600, y0=300, y1=30, Emin=-0.5, Emax=3.1;
+  function X(l){ return x0 + l*(x1-x0); }
+  function Y(E){ return y0 - (E-Emin)/(Emax-Emin)*(y0-y1); }
+  // Jacobi eigenvalues for symmetric 3x3
+  function eig3(M){
+    var A=[[M[0][0],M[0][1],M[0][2]],[M[1][0],M[1][1],M[1][2]],[M[2][0],M[2][1],M[2][2]]];
+    for(var sweep=0; sweep<50; sweep++){
+      var off=Math.abs(A[0][1])+Math.abs(A[0][2])+Math.abs(A[1][2]);
+      if(off<1e-12) break;
+      for(var p=0;p<2;p++) for(var q=p+1;q<3;q++){
+        if(Math.abs(A[p][q])<1e-14) continue;
+        var theta=(A[q][q]-A[p][p])/(2*A[p][q]);
+        var t=Math.sign(theta)/(Math.abs(theta)+Math.sqrt(theta*theta+1));
+        if(theta===0) t=1;
+        var co=1/Math.sqrt(t*t+1), si=t*co;
+        for(var k=0;k<3;k++){
+          var Akp=A[k][p], Akq=A[k][q];
+          A[k][p]=co*Akp-si*Akq; A[k][q]=si*Akp+co*Akq;
+        }
+        for(var k2=0;k2<3;k2++){
+          var Apk=A[p][k2], Aqk=A[q][k2];
+          A[p][k2]=co*Apk-si*Aqk; A[q][k2]=si*Apk+co*Aqk;
+        }
+      }
+    }
+    return [A[0][0],A[1][1],A[2][2]].sort(function(u,v){return u-v;});
+  }
+  function exact(l){
+    return eig3([[E1+l*a, l*b, l*c],[l*b, E2, l*d],[l*c, l*d, E2]]);
+  }
+  function pt(l){
+    return [E1 + l*a - l*l*(b*b+c*c)/(E2-E1), E2 - l*d, E2 + l*d].sort(function(u,v){return u-v;});
+  }
+  // axes
+  el(svg,"line",{x1:x0,y1:y0,x2:x1+14,y2:y0,stroke:"#1C2733","stroke-width":1.4});
+  el(svg,"line",{x1:x0,y1:y0,x2:x0,y2:y1-6,stroke:"#1C2733","stroke-width":1.4});
+  el(svg,"text",{x:x1-8,y:y0+24,"font-size":13,fill:"#1C2733","font-style":"italic"},"λ");
+  el(svg,"text",{x:x0-48,y:y1+4,"font-size":13,fill:"#1C2733","font-style":"italic"},"E(λ)");
+  [0,0.5,1].forEach(function(v){
+    el(svg,"line",{x1:X(v),y1:y0,x2:X(v),y2:y0+5,stroke:"#1C2733","stroke-width":1});
+    el(svg,"text",{x:X(v)-8,y:y0+20,"font-size":11.5,fill:"#65727E"},v.toFixed(1));
+  });
+  [0,1,2,3].forEach(function(v){
+    el(svg,"line",{x1:x0-5,y1:Y(v),x2:x0,y2:Y(v),stroke:"#1C2733","stroke-width":1});
+    el(svg,"text",{x:x0-28,y:Y(v)+4,"font-size":11.5,fill:"#65727E"},String(v));
+    el(svg,"line",{x1:x0,y1:Y(v),x2:x1,y2:Y(v),stroke:"#EEF1EE","stroke-width":1});
+  });
+  el(svg,"text",{x:x0+6,y:Y(E1)-8,"font-size":12,fill:"#65727E"},"E₁⁽⁰⁾");
+  el(svg,"text",{x:x0+6,y:Y(E2)-8,"font-size":12,fill:"#65727E"},"E₂⁽⁰⁾（二重简并）");
+  // curves
+  var exPts=[[],[],[]], ptPts=[[],[],[]];
+  for(var l=0;l<=1.0001;l+=0.02){
+    var e=exact(l), q=pt(l);
+    for(var i=0;i<3;i++){
+      exPts[i].push(X(l).toFixed(1)+","+Y(e[i]).toFixed(1));
+      ptPts[i].push(X(l).toFixed(1)+","+Y(q[i]).toFixed(1));
+    }
+  }
+  for(var i2=0;i2<3;i2++){
+    el(svg,"polyline",{points:ptPts[i2].join(" "),fill:"none",stroke:"#0E7C86","stroke-width":2,"stroke-dasharray":"7 5"});
+    el(svg,"polyline",{points:exPts[i2].join(" "),fill:"none",stroke:"#1D4E79","stroke-width":2.4});
+  }
+  el(svg,"text",{x:x1-160,y:Y(2.72),"font-size":12.5,fill:"#1D4E79","font-weight":"bold"},"E₂⁺ ≈ E₂⁽⁰⁾+λd");
+  el(svg,"text",{x:x1-160,y:Y(1.28),"font-size":12.5,fill:"#1D4E79","font-weight":"bold"},"E₂⁻ ≈ E₂⁽⁰⁾−λd");
+  el(svg,"text",{x:x1-215,y:Y(0.05),"font-size":12.5,fill:"#1D4E79","font-weight":"bold"},"E₁ ≈ E₁⁽⁰⁾+λa−λ²(b²+c²)/ΔE");
+  // marker group
+  var cursor=el(svg,"line",{x1:X(1),y1:y0,x2:X(1),y2:y1,stroke:"#B5352A","stroke-width":1,"stroke-dasharray":"4 4"});
+  var dots=[], pdots=[];
+  for(var i3=0;i3<3;i3++){
+    pdots.push(el(svg,"circle",{cx:0,cy:0,r:4.5,fill:"#fff",stroke:"#0E7C86","stroke-width":2}));
+    dots.push(el(svg,"circle",{cx:0,cy:0,r:4.5,fill:"#1D4E79"}));
+  }
+  var readbox=el(svg,"text",{x:x0,y:y0+46,"font-size":12.5,fill:"#1C2733","font-family":"monospace"},"");
+
+  var slider=document.getElementById("pt-slider");
+  var read=document.getElementById("pt-read");
+  function render(l){
+    var e=exact(l), q=pt(l);
+    cursor.setAttribute("x1",X(l)); cursor.setAttribute("x2",X(l));
+    for(var i=0;i<3;i++){
+      dots[i].setAttribute("cx",X(l)); dots[i].setAttribute("cy",Y(e[i]));
+      pdots[i].setAttribute("cx",X(l)); pdots[i].setAttribute("cy",Y(q[i]));
+    }
+    read.textContent="λ = "+l.toFixed(2);
+    readbox.textContent="精确: ["+e.map(function(v){return v.toFixed(3);}).join(", ")+"]　微扰: ["+q.map(function(v){return v.toFixed(3);}).join(", ")+"]";
+  }
+  slider.addEventListener("input", function(){ render(slider.value/100); });
+  render(1);
+}
+</script>
+</body>
+</html>
